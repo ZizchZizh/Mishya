@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #000, #000); /* Black gradient background */
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        .love-sign {
+            font-size: 400px; /* Increased font size for the love sign */
+            color: #e91e63; /* Pink color for the heart */
+            font-family: 'Caveat', cursive; /* Use Caveat font for the love sign */
+            position: relative;
+            z-index: 1; /* Ensure the love sign is on top of the sprinkle */
+            animation: moveUpDown 2s ease-in-out infinite alternate;
+        }
+
+        .love-sign::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('sprinkle.png'); /* Replace 'sprinkle.png' with the path to your sprinkle image */
+            background-size: cover;
+            z-index: -1; /* Place the sprinkle behind the love sign */
+            animation: rotate 2s linear infinite;
+        }
+
+        .stars::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('stars.png'); /* Replace 'stars.png' with the path to your stars image */
+            background-size: cover;
+            pointer-events: none; /* Ensure the stars don't interfere with user interactions */
+            z-index: -2; /* Place the stars behind the sprinkle and love sign */
+            animation: rotate 4s linear infinite;
+        }
+
+        .love-text {
+            font-size: 70px;
+            margin-top: 5px;
+            color: white; /* Text color is white */
+            font-family: 'Caveat', cursive; /* Use Caveat font for the text */
+        }
+
+        @keyframes moveUpDown {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="love-sign">&#10084;</div>
+        <div class="love-text">I LOVE YOU</div>
+    </div>
+    <div class="stars"></div>
+</body>
+</html>
